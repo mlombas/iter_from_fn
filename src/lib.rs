@@ -33,4 +33,27 @@ mod tests {
         let counter = from(f);
         assert_eq!(vec![1,2,3,4,5], counter.take(5).collect::<Vec<_>>());
     }
+
+    #[test]
+    fn test_inside_for() {
+        let mut x = 1;
+        let closure = || {
+           let temp = x;
+
+           //x = (x + 1)^2 each iteration
+           x += 1;
+           x *= x;
+
+           temp
+        };
+
+        let mut v = Vec::new();
+        for x in from(closure) {
+           if x >= 10 { break }
+
+           v.push(x);
+        }
+
+        assert_eq!(vec![1, 4], v);
+    }
 }
