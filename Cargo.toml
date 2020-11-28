@@ -6,5 +6,6 @@ edition = "2018"
 
 description = "Create iterator from repeatedly aplying a function that takes no parameters"
 license = "MIT"
+repository = "https://github.com/mocomaminecraft/iter_from_fn"
 
 [dependencies]
